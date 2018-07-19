@@ -39,15 +39,16 @@ public class GeneratorConfigVerticle extends AbstractVerticle {
             .flatMap(config ->
                 Observable.fromIterable(config.getJsonArray("companies"))
                     .cast(JsonObject.class)
-                    // Deploy the verticle with a configuration.
-                    .flatMapSingle(company -> vertx.rxDeployVerticle(MarketDataVerticle.class.getName(),
-                        new DeploymentOptions().setConfig(company)))
+
+                    // TODO: MarketDataVerticle // Deploy the verticle with a configuration
+
                     .toList()
             )
-            // Deploy another verticle
-            .flatMap(l -> vertx.rxDeployVerticle(RestQuoteAPIVerticle.class.getName()))
-            // Expose the market-data message source
-            .flatMap(x -> discovery.rxPublish(MessageSource.createRecord("market-data", ADDRESS)))
+
+            // TODO: RestQuoteAPIVerticle // Deploy another verticle
+
+            // TODO: ServiceDiscovery // Expose the market-data message source
+
             .subscribe((rec, err) -> {
                 if (rec != null) {
                     this.record = rec;

@@ -23,16 +23,11 @@ public class RestQuoteAPIVerticle extends AbstractVerticle {
     public void start(Future<Void> future) throws Exception {
         // Get the stream of messages sent on the "market" address
         vertx.eventBus().<JsonObject>consumer(GeneratorConfigVerticle.ADDRESS).toFlowable()
-            // TODO Extract the body of the message using `.map(msg -> {})`
-            // ----
-            //
-            // ----
-            // TODO For each message, populate the `quotes` map with the received quote. Use `.doOnNext(json -> {})`
-            // Quotes are json objects you can retrieve from the message body
-            // The map is structured as follows: name -> quote
-            // ----
-            //
-            // ----
+
+            // TODO: Extract the body of the message
+
+            // TODO: For each message, populate the quotes map with the received quote.
+
             .subscribe();
 
         HttpServer server = vertx.createHttpServer();
@@ -41,14 +36,14 @@ public class RestQuoteAPIVerticle extends AbstractVerticle {
                 HttpServerResponse response = request.response()
                     .putHeader("content-type", "application/json");
 
-                // TODO Handle the HTTP request
+                // Handle the HTTP request
                 // The request handler returns a specific quote if the `name` parameter is set, or the whole map if none.
                 // To write the response use: `response.end(content)`
                 // If the name is set but not found, you should return 404 (use response.setStatusCode(404)).
                 // To encode a Json object, use the `encorePrettily` method
-                // ----
 
-                // Remove this line
+                // TODO: Handle the HTTP request
+
                 response.end(Json.encodePrettily(quotes));
                 
                 // ----

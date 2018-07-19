@@ -31,16 +31,6 @@
     <module>currency-service</module>
   </modules>
 
-  <profiles>
-    <profile>
-      <id>solution</id>
-      <properties>
-        <source.dir>src/main/solution</source.dir>
-        <workshop.solution>true</workshop.solution>
-      </properties>
-    </profile>
-  </profiles>
-
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -247,6 +237,13 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>solution</id>
+      <properties>
+        <source.dir>src/main/solution</source.dir>
+        <workshop.solution>true</workshop.solution>
+      </properties>
+    </profile>
     <profile>
       <id>openshift</id>
       <build>

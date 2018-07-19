@@ -40,14 +40,16 @@ public class GeneratorConfigVerticle extends AbstractVerticle {
                 Observable.fromIterable(config.getJsonArray("companies"))
                     .cast(JsonObject.class)
 
-                    // TODO: MarketDataVerticle // Deploy the verticle with a configuration
+                    // Deploy the verticle with a configuration
+                    // TODO: MarketDataVerticle
 
                     .toList()
             )
 
-            // TODO: RestQuoteAPIVerticle // Deploy another verticle
+            // Deploy another verticle
+            // TODO: RestQuoteAPIVerticle
 
-            // TODO: ServiceDiscovery // Expose the market-data message source
+            .flatMap(x -> discovery.rxPublish(MessageSource.createRecord("market-data", ADDRESS)))
 
             .subscribe((rec, err) -> {
                 if (rec != null) {
@@ -69,7 +71,7 @@ public class GeneratorConfigVerticle extends AbstractVerticle {
     }
 
     private ConfigRetrieverOptions getConfigurationOptions() {
-        JsonObject path = new JsonObject().put("path", "config/config.json");
+        JsonObject path = new JsonObject().put("path", "src/conf/config.json");
         return new ConfigRetrieverOptions()
             .addStore(new ConfigStoreOptions().setType("file").setConfig(path));
     }

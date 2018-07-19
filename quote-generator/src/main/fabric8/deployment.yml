@@ -3,15 +3,9 @@ spec:
     spec:
       # Declare a volume mounting the config map
       volumes:
-        - configMap:
-            # Name of the config map
+        - name: config
+          configMap:
             name: app-config
-            # Define the items from the config map to mount
-            items:
-            - key: config.json
-              path: config.json
-            # Volume name (used as reference below)
-          name: config
       containers:
         - name: vertx
           env:
@@ -27,4 +21,4 @@ spec:
           # Mount the volume define above in /deployments/config
           volumeMounts:
             - name: config
-              mountPath: /deployments/config
+              mountPath: /deployments/src/conf

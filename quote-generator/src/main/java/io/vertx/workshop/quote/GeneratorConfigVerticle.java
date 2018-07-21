@@ -19,6 +19,11 @@ import io.vertx.servicediscovery.Record;
 public class GeneratorConfigVerticle extends AbstractVerticle {
 
     /**
+     * HTTP PORT to deploy the REST API Endpoint
+     */
+    static final int HTTP_PORT = 35000;
+
+    /**
      * The address on which the data are sent.
      */
     static final String ADDRESS = "market";

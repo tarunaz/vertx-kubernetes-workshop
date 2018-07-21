@@ -47,7 +47,7 @@ public class RestQuoteAPIVerticle extends AbstractVerticle {
             })
         .subscribe();
 
-        server.rxListen(config().getInteger("http.port", 35000))
+        server.rxListen(config().getInteger("HTTP_PORT", 8080))
             .toCompletable()
             .subscribe(CompletableHelper.toObserver(future));
     }

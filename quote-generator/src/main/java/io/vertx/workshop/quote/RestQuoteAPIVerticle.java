@@ -44,13 +44,10 @@ public class RestQuoteAPIVerticle extends AbstractVerticle {
 
                 // TODO: Handle the HTTP request
 
-                response.end(Json.encodePrettily(quotes));
-                
-                // ----
             })
         .subscribe();
 
-        server.rxListen(config().getInteger("http.port", 8080))
+        server.rxListen(config().getInteger("http.port", 35000))
             .toCompletable()
             .subscribe(CompletableHelper.toObserver(future));
     }

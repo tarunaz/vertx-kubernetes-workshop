@@ -19,11 +19,6 @@ import io.vertx.servicediscovery.Record;
 public class GeneratorConfigVerticle extends AbstractVerticle {
 
     /**
-     * HTTP PORT to deploy the REST API Endpoint
-     */
-    static final int HTTP_PORT = 35000;
-
-    /**
      * The address on which the data are sent.
      */
     static final String ADDRESS = "market";
@@ -50,8 +45,7 @@ public class GeneratorConfigVerticle extends AbstractVerticle {
                     .toList()
             )
             // Deploy another verticle
-            .flatMap(l -> vertx.rxDeployVerticle(RestQuoteAPIVerticle.class.getName(),
-                    new DeploymentOptions().setConfig(new JsonObject().put("HTTP_PORT", HTTP_PORT))))
+            .flatMap(l -> vertx.rxDeployVerticle(RestQuoteAPIVerticle.class.getName()))
             // Expose the market-data message source
             .flatMap(x -> discovery.rxPublish(MessageSource.createRecord("market-data", ADDRESS)))
             .subscribe((rec, err) -> {

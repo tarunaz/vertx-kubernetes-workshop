@@ -19,11 +19,6 @@ import io.vertx.servicediscovery.Record;
 public class GeneratorConfigVerticle extends AbstractVerticle {
 
     /**
-     * HTTP PORT to deploy the REST API Endpoint
-     */
-    static final int HTTP_PORT = 35000;
-
-    /**
      * The address on which the data are sent.
      */
     static final String ADDRESS = "market";
@@ -47,6 +42,8 @@ public class GeneratorConfigVerticle extends AbstractVerticle {
 
                     // Deploy the verticle with a configuration
                     // TODO: MarketDataVerticle
+                        .flatMapSingle(company -> vertx.rxDeployVerticle(MarketDataVerticle.class.getName(),
+                                new DeploymentOptions().setConfig(company)))
 
                     .toList()
             )
@@ -54,6 +51,7 @@ public class GeneratorConfigVerticle extends AbstractVerticle {
             // Deploy another verticle
             // TODO: RestQuoteAPIVerticle
 
+                .flatMap(l -> vertx.rxDeployVerticle(RestQuoteAPIVerticle.class.getName()))
             .flatMap(x -> discovery.rxPublish(MessageSource.createRecord("market-data", ADDRESS)))
 
             .subscribe((rec, err) -> {
@@ -76,7 +74,7 @@ public class GeneratorConfigVerticle extends AbstractVerticle {
     }
 
     private ConfigRetrieverOptions getConfigurationOptions() {
-        JsonObject path = new JsonObject().put("path", "src/conf/config.json");
+        JsonObject path = new JsonObject().put("path", "src/kubernetes/config.json");
         return new ConfigRetrieverOptions()
             .addStore(new ConfigStoreOptions().setType("file").setConfig(path));
     }

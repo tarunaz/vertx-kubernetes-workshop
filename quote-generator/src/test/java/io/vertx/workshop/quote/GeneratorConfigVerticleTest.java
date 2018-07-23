@@ -50,9 +50,6 @@ public class GeneratorConfigVerticleTest {
 
         vertx.deployVerticle(GeneratorConfigVerticle.class.getName(), new DeploymentOptions().setConfig(config));
 
-        await().until(() -> mch.size() > 10);
-        await().until(() -> dvn.size() > 10);
-        await().until(() -> bct.size() > 10);
     }
 
 }

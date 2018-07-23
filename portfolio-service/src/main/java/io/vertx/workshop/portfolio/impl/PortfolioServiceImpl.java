@@ -35,27 +35,23 @@ public class PortfolioServiceImpl implements PortfolioService {
 
     @Override
     public void getPortfolio(Handler<AsyncResult<Portfolio>> resultHandler) {
-        // TODO Call the given handler with a successful Async Result encapsulating the `portfolio` object
+        // Call the given handler with a successful Async Result encapsulating the `portfolio` object
         // The async result instance is created using `Future.succeededFuture`
-        // ----
-        
-        // ----
+
+        // TODO: getPortfolio
     }
 
     private void sendActionOnTheEventBus(String action, int amount, JsonObject quote, int newAmount) {
-        // TODO Broadcast a JSON message to the `EVENT_ADDRESS` containing the following keys: "action", "quote", "date"
+        // Broadcast a JSON message to the `EVENT_ADDRESS` containing the following keys: "action", "quote", "date"
         // (use System.currentTimeMillis()), "amount" and "owned" (newAmount)
-        // ----
 
-        // ----
+        // TODO: sendActionOnTheEventBus
     }
 
     @Override
     public void evaluate(Handler<AsyncResult<Double>> resultHandler) {
-        // TODO
-        // ----
-        
-        // ---
+
+        // TODO: evaluate
     }
 
     private void computeEvaluation(WebClient webClient, Handler<AsyncResult<Double>> resultHandler) {
@@ -78,11 +74,9 @@ public class PortfolioServiceImpl implements PortfolioService {
     }
 
     private Single<Double> getValueForCompany(WebClient client, String company, int numberOfShares) {
-        //TODO
-        //----
+        // TODO: getValueForCompany
 
         return Single.just(0.0);
-        // ---
 
 
     }

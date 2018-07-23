@@ -140,10 +140,6 @@
           <runArgs>-cluster</runArgs>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>io.fabric8</groupId>
-        <artifactId>fabric8-maven-plugin</artifactId>
-      </plugin>
     </plugins>
   </build>
 
@@ -153,6 +149,17 @@
       <properties>
         <source.dir>src/main/java</source.dir>
       </properties>
+    </profile>
+    <profile>
+    <id>openshift</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>io.fabric8</groupId>
+            <artifactId>fabric8-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 </project>

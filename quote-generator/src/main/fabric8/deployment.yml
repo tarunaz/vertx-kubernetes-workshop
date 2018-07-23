@@ -21,4 +21,4 @@ spec:
           # Mount the volume define above in /deployments/config
           volumeMounts:
             - name: config
-              mountPath: /deployments/src/conf
+              mountPath: /deployments/src/kubernetes

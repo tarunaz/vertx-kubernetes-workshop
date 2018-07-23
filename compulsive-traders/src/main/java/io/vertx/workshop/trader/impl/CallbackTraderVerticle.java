@@ -32,14 +32,13 @@ public class CallbackTraderVerticle extends AbstractVerticle {
         // When the service discovery is retrieved, retrieve the portfolio service and market data
         retrieveServiceDiscovery.setHandler(discovery -> {
 
-            // TODO 1 - Get the Future objects for the portfolio and market services. Just use the method given below
+            // Get the Future objects for the portfolio and market services. Just use the method given below
+            // TODO 1
 
-            // TODO 2 - Use CompositeFuture.all to "wait" until both future are completed.
+            // Use CompositeFuture.all to "wait" until both future are completed.
+            // Attach a handler on the composite future, and call "initialize"
+            // TODO 2
 
-            // TODO 3 - Attach a handler on the composite future, and call "initialize"
-
-            // Remove it
-            done.complete();
         });
         // ----
 

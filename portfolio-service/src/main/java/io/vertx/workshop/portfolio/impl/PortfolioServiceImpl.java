@@ -76,9 +76,6 @@ public class PortfolioServiceImpl implements PortfolioService {
     private Single<Double> getValueForCompany(WebClient client, String company, int numberOfShares) {
         // TODO: getValueForCompany
 
-        return Single.just(0.0);
-
-
     }
 
 

@@ -55,13 +55,7 @@ public class AuditVerticle extends AbstractVerticle {
                 getDatabaseConfiguration()
             ).doOnSuccess(jdbcClient -> this.jdbc = jdbcClient);
 
-            // TODO
-            // ----
-
-            Single<MessageConsumer<JsonObject>> readySingle = Single
-                .error(new UnsupportedOperationException("Not implemented yet"));
-
-            // ----
+            // TODO: createSingles
 
             // signal a verticle start failure
             readySingle.doOnSuccess(consumer -> {
@@ -102,20 +96,13 @@ public class AuditVerticle extends AbstractVerticle {
         // 5. write this list into the response
         // 4. close the connection
 
-        //TODO
-        // ----
+        //TODO : retrieveOperations
 
-        // ----
     }
 
     private Single<HttpServer> configureTheHTTPServer() {
 
-        //TODO
-        //----
-
-        return Single
-            .error(new UnsupportedOperationException("Not implemented yet"));
-        //----
+        // TODO: configureTheHTTPServer
 
     }
 
@@ -149,8 +136,7 @@ public class AuditVerticle extends AbstractVerticle {
         });
     }
 
-    private Single<JDBCClient> initializeDatabase(JDBCClient client, boolean drop) {
-        // TODO - Initialize the database and return the JDBC client
+    private Single<JDBCClient> initializeDatabase(JDBCClient client, // TODO - Initialize the database and return the JDBC client
         // ----
         // The database initialization is a multi-step process:
         // 1. Retrieve the connection
@@ -161,8 +147,15 @@ public class AuditVerticle extends AbstractVerticle {
         // retrieve the connection -> drop table -> create table -> close the connection
         // For this we use `Func1<X, Single<R>>`that takes a parameter `X` and return a `Single<R>` object.
 
-        return Single.error(new UnsupportedOperationException("Not implemented yet"));
-        // ----
+        // This is the starting point of our operations
+        // This single will be completed when the connection with the database is established.
+        // We are going to use this single as a reference on the connection to close it.
+        // TODO: retrieveConnection
+
+        // Ok, now it's time to chain all these actions (2 to 4):
+        // TODO: executeBatch
+
+        // TODO: returnResult
 
     }
 }

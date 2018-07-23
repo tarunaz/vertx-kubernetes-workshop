@@ -29,26 +29,28 @@ public class RXCompulsiveTraderVerticle extends AbstractVerticle {
             Single<MessageConsumer<JsonObject>> retrieveTheMarket = MessageSource.rxGetConsumer(discovery,
                 rec -> rec.getName().equalsIgnoreCase("market-data"));
 
-            //TODO
-            //----
+            // "wait" for both single to be completed (using Single.zip or Single.zipWith methods)
 
-            // TODO 1 - "wait" for both single to be completed (using Single.zip or Single.zipWith methods)
+            // TODO 1
 
-            // TODO 2 - When both single have completed, attach the handler to the message consumer to execute the
+            // When both single have completed, attach the handler to the message consumer to execute the
             // trading logic
 
-            // TODO 3 - Use the TraderUtils.drumpTradingLogic method returning a Completable. Don't forget to
+            // TODO 2
+
+            // Use the TraderUtils.drumpTradingLogic method returning a Completable. Don't forget to
             // subscribe to it, or nothing will happen. Return "true" to comply with the "zip" operator
             // signature.
 
+            // TODO 3
 
-            // TODO 4 - Transform the output into a Completable (toCompletable) and subscribe to it using:
+
+            // Transform the output into a Completable (toCompletable) and subscribe to it using:
             //.subscribe(CompletableHelper.toObserver(future)) - it reports the failure or success to the `done`
             // future.
-            
-            // To remove
-            future.complete();
-            //----
+
+            // TODO 4
+
 
         });
     }

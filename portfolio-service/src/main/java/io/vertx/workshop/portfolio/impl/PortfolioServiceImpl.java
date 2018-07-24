@@ -51,6 +51,8 @@ public class PortfolioServiceImpl implements PortfolioService {
     @Override
     public void evaluate(Handler<AsyncResult<Double>> resultHandler) {
 
+        Single<WebClient> quotes = HttpEndpoint.rxGetWebClient(discovery, rec -> rec.getName().equals("quote-generator"));
+
         // TODO: evaluate
     }
 

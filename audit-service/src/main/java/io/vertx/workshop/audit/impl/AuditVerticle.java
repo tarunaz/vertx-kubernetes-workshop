@@ -55,7 +55,7 @@ public class AuditVerticle extends AbstractVerticle {
                 getDatabaseConfiguration()
             ).doOnSuccess(jdbcClient -> this.jdbc = jdbcClient);
 
-            // TODO: createSingles
+            // TODO: retrieveSingles
 
             // signal a verticle start failure
             readySingle.doOnSuccess(consumer -> {

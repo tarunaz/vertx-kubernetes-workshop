@@ -136,7 +136,8 @@ public class AuditVerticle extends AbstractVerticle {
         });
     }
 
-    private Single<JDBCClient> initializeDatabase(JDBCClient client, // TODO - Initialize the database and return the JDBC client
+ private Single<JDBCClient> initializeDatabase(JDBCClient client, boolean drop) {                                                  
+        // TODO - Initialize the database and return the JDBC client
         // ----
         // The database initialization is a multi-step process:
         // 1. Retrieve the connection

@@ -15,6 +15,7 @@
   <properties>
     <vertx.verticle>io.vertx.workshop.audit.impl.AuditVerticle</vertx.verticle>
     <vertx.health.path>/health</vertx.health.path>
+    <vertx.cluster.name>vertx-cluster</vertx.cluster.name>
   </properties>
 
   <dependencies>

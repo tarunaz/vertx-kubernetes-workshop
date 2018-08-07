@@ -96,7 +96,7 @@ public class AuditVerticle extends AbstractVerticle {
         // 5. write this list into the response
         // 4. close the connection
 
-        //TODO : retrieveOperations
+        // TODO : retrieveOperations
 
     }
 

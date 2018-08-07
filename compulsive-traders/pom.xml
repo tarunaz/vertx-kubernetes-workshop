@@ -14,7 +14,6 @@
 
   <properties>
     <vertx.verticle>io.vertx.workshop.trader.impl.MainVerticle</vertx.verticle>
-    <vertx.cluster.name>vertx-cluster</vertx.cluster.name>
   </properties>
 
   <dependencies>

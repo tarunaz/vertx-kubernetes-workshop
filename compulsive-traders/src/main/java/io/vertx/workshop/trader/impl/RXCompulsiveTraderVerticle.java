@@ -3,6 +3,7 @@ package io.vertx.workshop.trader.impl;
 import io.reactivex.Single;
 import io.vertx.core.Future;
 import io.vertx.core.json.JsonObject;
+import io.vertx.reactivex.CompletableHelper;
 import io.vertx.reactivex.core.AbstractVerticle;
 import io.vertx.reactivex.core.eventbus.MessageConsumer;
 import io.vertx.reactivex.servicediscovery.ServiceDiscovery;

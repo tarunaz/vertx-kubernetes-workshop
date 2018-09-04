@@ -151,9 +151,9 @@
           </configuration>
         </plugin>
         <plugin>
-          <groupId>io.reactiverse</groupId>
+          <groupId>io.fabric8</groupId>
           <artifactId>vertx-maven-plugin</artifactId>
-          <version>1.0.15</version>
+          <version>1.0.9</version>
           <executions>
             <execution>
               <id>vmp</id>

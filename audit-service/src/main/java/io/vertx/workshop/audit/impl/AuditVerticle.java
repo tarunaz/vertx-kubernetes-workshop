@@ -96,7 +96,7 @@ public class AuditVerticle extends AbstractVerticle {
         // 5. write this list into the response
         // 4. close the connection
 
-        //TODO : retrieveOperations
+        // TODO : retrieveOperations
 
     }
 
@@ -136,7 +136,8 @@ public class AuditVerticle extends AbstractVerticle {
         });
     }
 
-    private Single<JDBCClient> initializeDatabase(JDBCClient client, // TODO - Initialize the database and return the JDBC client
+ private Single<JDBCClient> initializeDatabase(JDBCClient client, boolean drop) {                                                  
+        // TODO - Initialize the database and return the JDBC client
         // ----
         // The database initialization is a multi-step process:
         // 1. Retrieve the connection

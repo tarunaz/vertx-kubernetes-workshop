@@ -16,6 +16,8 @@
     <vertx.cluster.name>none</vertx.cluster.name>
     <workshop.solution>false</workshop.solution>
 
+    <vertx-maven-plugin.version>1.0.15</vertx-maven-plugin.version>
+
     <fabric8.mode>openshift</fabric8.mode>
     <fabric8-maven-plugin.version>3.5.40</fabric8-maven-plugin.version>
     <fabric8.generator.from>registry.access.redhat.com/redhat-openjdk-18/openjdk18-openshift:1.2</fabric8.generator.from>
@@ -158,7 +160,7 @@
         <plugin>
           <groupId>io.reactiverse</groupId>
           <artifactId>vertx-maven-plugin</artifactId>
-          <version>1.0.15</version>
+          <version>${vertx-maven-plugin.version}</version>
           <executions>
             <execution>
               <id>vmp</id>
